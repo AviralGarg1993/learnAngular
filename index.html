@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html ng-app="gemStore">
+
   <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <meta charset="utf-8" />
+    <title>AngularJS</title>
+    <link data-require="bootstrap-css" data-semver="3.1.1" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link data-require="semantic-ui@*" data-semver="0.9.6" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.9.6/css/semantic.min.css" />
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="semantic-ui@*" data-semver="0.9.6" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.9.6/javascript/semantic.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
+    <script src="app.js"></script>
+    <script src="products.js"></script>
   </head>
 
   <body ng-controller="StoreController as store">
@@ -16,9 +24,11 @@
     <!--  Products Container  -->
     <div class="list-group">
       <!--  Product Container  -->
-      <div class="list-group-item" ng-repeat="product in store.products">
-        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+      <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
 
+        <!-- $index Practice:  -->
+        <h3>Gem #{{$index + 1}}: {{product.name | uppercase}}<em class="pull-right">{{product.price | currency}}</em>
+        </h3>
         <!-- Image Gallery  -->
         <product-gallery></product-gallery>
 
@@ -28,4 +38,5 @@
       </div>
     </div>
   </body>
+
 </html>
