@@ -15,21 +15,21 @@ app.directive('productGallery', function(){
     };
   });
 
-app.directive("descriptions", function() {
+app.directive("productDescriptions", function() {
   return {
     restrict: "E",
     templateUrl: "product-description.html"
   };
 });
 
-app.directive("reviews", function() {
+app.directive("productReviews", function() {
   return {
     restrict: "E",
     templateUrl: "product-reviews.html"
   };
 });
 
-app.directive("specs", function() {
+app.directive("productSpecs", function() {
   return {
     restrict: "E",
     templateUrl: "product-specs.html"
